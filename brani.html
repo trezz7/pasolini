@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brani di Pier Paolo Pasolini</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f4ede8, #e9dcd0);
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 40px;
+      color: #4e342e;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .section {
+      position: relative;
+      width: 80%;
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(80px);
+      transition: all 1s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #5d4037;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .section {
+        margin: 40px auto !important;
+        width: 90%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Brani di Pier Paolo Pasolini</h1>
+
+  <section class="section">
+    <h2>Il furto del Riccetto</h2>
+    <p>
+      Tratto da "Ragazzi di vita", questo brano racconta la vicenda del Riccetto, un giovane del sottoproletariato romano, colto nell’atto di rubare. Pasolini descrive la scena con uno stile diretto e crudo, mettendo in luce la miseria e l’ingenuità dei ragazzi di borgata, vittime e protagonisti di una realtà violenta e degradata. Il tono è partecipe ma non pietistico, e restituisce la vitalità disperata di chi vive ai margini.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Il pianto della scavatrice</h2>
+    <p>
+      In questa poesia, Pasolini crea un parallelismo lirico tra la macchina — la scavatrice — e la condizione umana. Il pianto della scavatrice, figura dolente e umanizzata, rappresenta il dolore e la trasformazione forzata della natura e del paesaggio sotto il peso del progresso. È una denuncia poetica contro la violenza della modernità sul mondo contadino, a cui l’autore è profondamente legato.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Alla mia nazione</h2>
+    <p>
+      Con tono duro e amaro, Pasolini si rivolge direttamente all’Italia, criticando il conformismo, l’ipocrisia e l’imborghesimento della società. La poesia è una dichiarazione d’amore disillusa verso una patria che l’autore sente di non riconoscere più. È un testo provocatorio e lucido, che unisce rabbia e malinconia in un’accusa alla perdita dei valori autentici.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Profezia</h2>
+    <p>
+      "Profezia" è un testo visionario e potente, in cui Pasolini immagina una migrazione dall’Africa verso l’Italia, anticipando temi oggi molto attuali. Il poeta invoca un cambiamento che scardini la società italiana, corrotta e chiusa. Il brano si distingue per la sua carica etica e per l’intensità espressiva, rendendo Pasolini una voce profetica e coraggiosa.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>La crocifissione</h2>
+    <p>
+      In questo brano tratto dal film "Il Vangelo secondo Matteo", Pasolini mette in scena la crocifissione di Cristo con una potenza visiva e simbolica straordinaria. Pur mantenendo la fedeltà evangelica, la scena è riletta in chiave moderna, con un pathos che unisce spiritualità e impegno civile. È una rappresentazione sobria ma intensa del sacrificio, carica di significato universale.
+    </p>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll(".section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>
